@@ -14,11 +14,10 @@ function playNote(e) {
   const keyNote = key.getAttribute("data-note");
 
   key.classList.add("playing");
-  if (mode === "Piano") {
-    note.innerHTML = keyNote;
-  }
   if (mode === "Drums") {
     note.innerHTML = "";
+  } else {
+    note.innerHTML = keyNote;
   }
   audio.currentTime = 0;
   audio.play();
