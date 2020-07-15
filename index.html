@@ -127,9 +127,12 @@
     <script type="text/javascript">
       function change() {
         var elem = document.getElementById("play-mode");
-        if (elem.value == "Piano") {
+        if (elem.value === "Piano") {
           elem.value = "Drums";
           elem.innerHTML = "Drums";
+        } else if (elem.value === "Drums") {
+          elem.value = "Guitar";
+          elem.innerHTML = "Guitar";
         } else {
           elem.value = "Piano";
           elem.innerHTML = "Piano";
