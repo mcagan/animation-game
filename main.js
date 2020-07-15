@@ -3,7 +3,10 @@ const keys = document.querySelectorAll(".key"),
   hints = document.querySelectorAll(".hints");
 
 function playNote(e) {
-  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`),
+  const mode = document.querySelector("button").value;
+  const audio = document.querySelector(
+      `audio[data-key="${e.keyCode}"][mode="${mode}"]`
+    ),
     key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
 
   if (!key) return;
@@ -27,40 +30,40 @@ function hintsOn(e, index) {
 
 hints.forEach(hintsOn);
 
-keys.forEach(key => key.addEventListener("transitionend", removeTransition));
+keys.forEach((key) => key.addEventListener("transitionend", removeTransition));
 
-window.addEventListener("keydown", playNote);  
+window.addEventListener("keydown", playNote);
 
 const { Path, Point } = paper;
 
 const offset = 10;
 const segments = 20;
 const strokeWidth = 5;
-const strokeColor = 'black';
+const strokeColor = "black";
 
-const canvas = document.querySelector('.squig');
+const canvas = document.querySelector(".squig");
 paper.setup(canvas);
 const view = paper.view;
 
 const path = new Path();
 path.strokeColor = strokeColor;
 path.strokeWidth = strokeWidth;
-path.strokeCap = 'round';
+path.strokeCap = "round";
 
 for (let i = 0; i <= segments; i++) {
-  let width = view.size.width - (offset * 1);
-  path.add(new Point((i / segments * width + offset), view.size.height / 2));
+  let width = view.size.width - offset * 1;
+  path.add(new Point((i / segments) * width + offset, view.size.height / 2));
 }
 
 path.onFrame = (e) => {
-	for (var i = 0; i <= segments; i++) {
+  for (var i = 0; i <= segments; i++) {
     let height = 10;
     let sinus = Math.sin(e.time * 3 + i);
-		path.segments[i].point.y = sinus * height + 25;
+    path.segments[i].point.y = sinus * height + 25;
     path.smooth({
-      type: 'continuous'
+      type: "continuous",
     });
-	}
-}
+  }
+};
 
 paper.view.draw();
