@@ -127,8 +127,13 @@
     <script type="text/javascript">
       function change() {
         var elem = document.getElementById("play-mode");
-        if (elem.value == "Piano") elem.value = "Drums";
-        else elem.value = "Piano";
+        if (elem.value == "Piano") {
+          elem.value = "Drums";
+          elem.innerHTML = "Drums";
+        } else {
+          elem.value = "Piano";
+          elem.innerHTML = "Piano";
+        }
       }
     </script>
 
@@ -137,7 +142,7 @@
       Play KeyBoard by pressing (A S D F G H J K L ;)<br />
       and (W E T Y U O P)
     </h3>
-    <button id="play-mode" onClick="change()" value="Piano"></button>
+    <button id="play-mode" onClick="change()" value="Piano">Piano</button>
     <canvas class="squig" resize></canvas>
     <section id="wrap">
       <section id="main">
