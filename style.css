@@ -339,4 +339,6 @@ button {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
