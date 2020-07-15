@@ -124,18 +124,23 @@
       aDodecagon.fillColor = '#CCAAFC';
       aDodecagon.selected = true;
     </script>
+    <script type="text/javascript">
+      var currentMode = "piano";
+    </script>
 
     <canvas id="myCanvas" resize></canvas>
     <h3>
       Play KeyBoard by pressing (A S D F G H J K L ;)<br />
       and (W E T Y U O P)
     </h3>
+    <button>Keyboard</button>
+    <button>Drums</button>
     <canvas class="squig" resize></canvas>
     <section id="wrap">
       <section id="main">
         <div class="nowplaying"></div>
         <div class="keys">
-          <canvas id="myCanvasK" data-key="65" class="key" data-note="C">
+          <canvas id="myCanvasK" data-key="15" class="key" data-note="C">
             <span class="hints">A</span>
           </canvas>
           <canvas id="myCanvasK" data-key="87" class="key sharp" data-note="C#">
@@ -188,74 +193,93 @@
           </canvas>
         </div>
 
-        <audio
-          data-key="65"
-          src="http://carolinegabriel.com/demo/js-keyboard/sounds/040.wav"
-        ></audio>
-        <audio
-          data-key="87"
-          src="http://carolinegabriel.com/demo/js-keyboard/sounds/041.wav"
-        ></audio>
-        <audio
-          data-key="83"
-          src="http://carolinegabriel.com/demo/js-keyboard/sounds/042.wav"
-        ></audio>
-        <audio
-          data-key="69"
-          src="http://carolinegabriel.com/demo/js-keyboard/sounds/043.wav"
-        ></audio>
-        <audio
-          data-key="68"
-          src="http://carolinegabriel.com/demo/js-keyboard/sounds/044.wav"
-        ></audio>
-        <audio
-          data-key="70"
-          src="http://carolinegabriel.com/demo/js-keyboard/sounds/045.wav"
-        ></audio>
-        <audio
-          data-key="84"
-          src="http://carolinegabriel.com/demo/js-keyboard/sounds/046.wav"
-        ></audio>
-        <audio
-          data-key="71"
-          src="http://carolinegabriel.com/demo/js-keyboard/sounds/047.wav"
-        ></audio>
-        <audio
-          data-key="89"
-          src="http://carolinegabriel.com/demo/js-keyboard/sounds/048.wav"
-        ></audio>
-        <audio
-          data-key="72"
-          src="http://carolinegabriel.com/demo/js-keyboard/sounds/049.wav"
-        ></audio>
-        <audio
-          data-key="85"
-          src="http://carolinegabriel.com/demo/js-keyboard/sounds/050.wav"
-        ></audio>
-        <audio
-          data-key="74"
-          src="http://carolinegabriel.com/demo/js-keyboard/sounds/051.wav"
-        ></audio>
-        <audio
-          data-key="75"
-          src="http://carolinegabriel.com/demo/js-keyboard/sounds/052.wav"
-        ></audio>
-        <audio
-          data-key="79"
-          src="http://carolinegabriel.com/demo/js-keyboard/sounds/053.wav"
-        ></audio>
-        <audio
-          data-key="76"
-          src="http://carolinegabriel.com/demo/js-keyboard/sounds/054.wav"
-        ></audio>
-        <audio
-          data-key="80"
-          src="http://carolinegabriel.com/demo/js-keyboard/sounds/055.wav"
-        ></audio>
-        <audio
-          data-key="186"
-          src="http://carolinegabriel.com/demo/js-keyboard/sounds/056.wav"
-        ></audio>
+        <div class="piano-mode">
+          <audio
+            data-key="65"
+            mode="piano"
+            src="http://carolinegabriel.com/demo/js-keyboard/sounds/040.wav"
+          ></audio>
+          <audio
+            data-key="87"
+            mode="piano"
+            src="http://carolinegabriel.com/demo/js-keyboard/sounds/041.wav"
+          ></audio>
+          <audio
+            data-key="83"
+            mode="piano"
+            src="http://carolinegabriel.com/demo/js-keyboard/sounds/042.wav"
+          ></audio>
+          <audio
+            data-key="69"
+            mode="piano"
+            src="http://carolinegabriel.com/demo/js-keyboard/sounds/043.wav"
+          ></audio>
+          <audio
+            data-key="68"
+            mode="piano"
+            src="http://carolinegabriel.com/demo/js-keyboard/sounds/044.wav"
+          ></audio>
+          <audio
+            data-key="70"
+            mode="piano"
+            src="http://carolinegabriel.com/demo/js-keyboard/sounds/045.wav"
+          ></audio>
+          <audio
+            data-key="84"
+            mode="piano"
+            src="http://carolinegabriel.com/demo/js-keyboard/sounds/046.wav"
+          ></audio>
+          <audio
+            data-key="71"
+            mode="piano"
+            src="http://carolinegabriel.com/demo/js-keyboard/sounds/047.wav"
+          ></audio>
+          <audio
+            data-key="89"
+            mode="piano"
+            src="http://carolinegabriel.com/demo/js-keyboard/sounds/048.wav"
+          ></audio>
+          <audio
+            data-key="72"
+            mode="piano"
+            src="http://carolinegabriel.com/demo/js-keyboard/sounds/049.wav"
+          ></audio>
+          <audio
+            data-key="85"
+            mode="piano"
+            src="http://carolinegabriel.com/demo/js-keyboard/sounds/050.wav"
+          ></audio>
+          <audio
+            data-key="74"
+            mode="piano"
+            src="http://carolinegabriel.com/demo/js-keyboard/sounds/051.wav"
+          ></audio>
+          <audio
+            data-key="75"
+            mode="piano"
+            src="http://carolinegabriel.com/demo/js-keyboard/sounds/052.wav"
+          ></audio>
+          <audio
+            data-key="79"
+            mode="piano"
+            src="http://carolinegabriel.com/demo/js-keyboard/sounds/053.wav"
+          ></audio>
+          <audio
+            data-key="76"
+            mode="piano"
+            src="http://carolinegabriel.com/demo/js-keyboard/sounds/054.wav"
+          ></audio>
+          <audio
+            data-key="80"
+            mode="piano"
+            src="http://carolinegabriel.com/demo/js-keyboard/sounds/055.wav"
+          ></audio>
+          <audio
+            data-key="186"
+            mode="piano"
+            src="http://carolinegabriel.com/demo/js-keyboard/sounds/056.wav"
+          ></audio>
+        </div>
       </section>
     </section>
 
