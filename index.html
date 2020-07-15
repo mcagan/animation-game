@@ -15,11 +15,11 @@
       var primaryColor            = '#cf034a';
       var secondaryColor          = '#231f20';
 
-      <!-- var theTieWrapPath          = new Path(theTieWrap);
+      var theTieWrapPath          = new Path(theTieWrap);
 
 
       var theTiePath              = new Path(theTie);
-      //linePath.fullySelected    = true; -->
+      //linePath.fullySelected    = true;
 
       //initialise the line
       var linePathOriginal        = new Path(dataLine);
@@ -83,16 +83,16 @@
 
           linePathRender.strokeWidth = lineProHeight/40;
 
-          // Grouping tie elements
+          <!-- // Grouping tie elements
           var tieGroup = new Group({
               children: [theTieWrapPath, theTiePath],
 
               fillColor : secondaryColor
-          });
+          }); -->
 
 
           var allFigure = new Group({
-              children: [theTieWrapPath, theTiePath,linePathRender,linePathOriginal,linePathWave],
+              children: [linePathRender,linePathOriginal,linePathWave],
 
               position: [ view.center.x + 65, view.center.y + 110 ]
           });
