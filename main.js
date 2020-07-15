@@ -17,6 +17,9 @@ function playNote(e) {
   if (mode === "Piano") {
     note.innerHTML = keyNote;
   }
+  if (mode === "Drums") {
+    note.innerHTML = "";
+  }
   audio.currentTime = 0;
   audio.play();
 }
