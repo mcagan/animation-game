@@ -126,6 +126,9 @@
     </script>
     <script type="text/javascript">
       var currentMode = "piano";
+      const setMode = function(mode) {
+        currentMode = mode;
+      }
     </script>
 
     <canvas id="myCanvas" resize></canvas>
@@ -133,8 +136,8 @@
       Play KeyBoard by pressing (A S D F G H J K L ;)<br />
       and (W E T Y U O P)
     </h3>
-    <button>Keyboard</button>
-    <button>Drums</button>
+    <button onClick={setMode("piano")}>Piano</button>
+    <button onClick={setMode("drums")}>Drums</button>
     <canvas class="squig" resize></canvas>
     <section id="wrap">
       <section id="main">
