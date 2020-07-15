@@ -125,9 +125,10 @@
       aDodecagon.selected = true;
     </script>
     <script type="text/javascript">
-      var currentMode = "piano";
-      const setMode = function(mode) {
-        currentMode = mode;
+      function change() {
+        var elem = document.getElementById("play-mode");
+        if (elem.value == "Piano") elem.value = "Drums";
+        else elem.value = "Piano";
       }
     </script>
 
@@ -136,8 +137,7 @@
       Play KeyBoard by pressing (A S D F G H J K L ;)<br />
       and (W E T Y U O P)
     </h3>
-    <button onClick={setMode("piano")}>Piano</button>
-    <button onClick={setMode("drums")}>Drums</button>
+    <button id="play-mode" onClick="change()">Piano</button>
     <canvas class="squig" resize></canvas>
     <section id="wrap">
       <section id="main">
