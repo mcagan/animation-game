@@ -14,7 +14,9 @@ function playNote(e) {
   const keyNote = key.getAttribute("data-note");
 
   key.classList.add("playing");
-  note.innerHTML = keyNote;
+  if (mode === "Piano") {
+    note.innerHTML = keyNote;
+  }
   audio.currentTime = 0;
   audio.play();
 }
